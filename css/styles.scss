@@ -1,8 +1,67 @@
-body{
-  display: grid;
+@import 'hamburger';
+@import 'modal';
+
+$color-background: rgb(170, 164, 156);
+
+* {
+  padding: 0;
+  margin: 0;
 }
 
-header, main, footer{
-  background-color: burlywood;
-  border: solid 1px red
+body {
+  height: 100vh;
+  display: grid;
+  grid:
+    'header header header header' 100px 
+    '. aside main .'
+    'footer footer footer footer' 100px 
+    / auto 0.5fr 1fr auto;
+  gap: 10px;
+  justify-content: stretch
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    grid:
+    'header header header' 100px
+    '. aside .'
+    '. main .'
+    'footer footer footer' 100px
+    / auto 1fr auto;
+
+  }
+}
+
+header,
+aside,
+main,
+footer {
+  background-color: $color-background;
+  border: solid 1px rgb(77, 77, 77);
+  border-radius: 5px
+}
+
+header {
+  grid-area: header;
+/*   display: grid;
+  grid:
+  'header-left header-center header-right'
+  ; */
+}
+
+aside {
+  grid-area: aside;
+  height: auto;
+}
+
+main {
+  grid-area: main
+}
+
+footer {
+  grid-area: footer;
+}
+
+.header-left{
+
 }
